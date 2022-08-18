@@ -13,6 +13,7 @@ Recibir dos valores
  */
 public class calculadora extends javax.swing.JFrame {
 
+
     private float primerNumero;
     private float segundoNumero;
     private float total;
@@ -25,6 +26,9 @@ public class calculadora extends javax.swing.JFrame {
         this.segundoNumero=0;
         this.total=0;
         initComponents();
+        for(int x=0;x<OPERACIONES.length;x++){
+            this.cmbOperacion.addItem(OPERACIONES[x]);
+        }
     }
 
     public float getPrimerNumero() {
@@ -90,6 +94,7 @@ public class calculadora extends javax.swing.JFrame {
         cmbOperacion = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(500, 300));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Aplicacion Calculadora CEUTEC");
@@ -114,8 +119,6 @@ public class calculadora extends javax.swing.JFrame {
         });
 
         jLabel5.setText("Seleccion el tipo de Operacion:");
-
-        cmbOperacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Suma", "Resta", "Multiplicacion", "Division" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -179,6 +182,8 @@ public class calculadora extends javax.swing.JFrame {
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         // TODO add your handling code here:
+
+   
         this.setPrimerNumero(Float.parseFloat(this.txtPrimerNombre.getText()));
         this.setSegundoNumero(Float.parseFloat(this.txtSegundoNombre.getText()));
         this.realizarOperacion(this.cmbOperacion.getSelectedIndex());
